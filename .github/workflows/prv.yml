@@ -1,0 +1,15 @@
+name: Discord Notify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+    Notify:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Discord Notify Webhook
+              uses: EDUJOS/ds-webhook@v1.0.0
+              with:
+                webhook_url: asd
