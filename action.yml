@@ -1,5 +1,8 @@
-name: 'Discord Webhook'
+name: 'Discord Notify Webhook'
 description: 'Send custom Discord Notify from GitHub Action'
+branding:
+  icon: bell
+  color: green
 inputs:
   webhook_url:
     description: 'Discord Webhook Url'
