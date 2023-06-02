@@ -2,14 +2,14 @@
   "name": "ds-webhook",
   "version": "1.0.0",
   "description": "Send Discord webhooks via GitHub Actions",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "build": "ncc build src/index.js --license licenses.txt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ci", "GitHub Actions", "Discord", "Webhook"],
+  "author": "Ed",
   "license": "ISC",
   "devDependencies": {
     "standard": "17.1.0"
