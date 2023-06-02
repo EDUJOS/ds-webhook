@@ -1,0 +1,23 @@
+name: 'Discord Webhook'
+description: 'Send custom Discord Notify from GitHub Action'
+inputs:
+  webhook_url:
+    description: 'Discord Webhook Url'
+    required: true
+  content:
+    description: 'Message content'
+    required: false
+  username:
+    description: 'Username of the webhook'
+    required: false
+  avatar:
+    description: 'Avatar of the webhook[type: Url]'
+    required: false
+  # Embed Fields
+  title:
+    description: 'Title of embed'
+    required: false
+
+runs:
+  using: 'node16'
+  main: 'index.js'
