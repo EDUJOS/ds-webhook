@@ -17,7 +17,40 @@ inputs:
   title:
     description: 'Title of embed'
     required: false
+  description:
+    description: 'Description of embed'
+    required: false
+  url:
+    description: 'Url of embed'
+    required: false
+  timestamp:
+    description: 'Timestamp of embed content'
+    required: false
+  color:
+    description: 'Color code of the embed'
+    required: false
+  footer:
+    description: 'Footer text'
+    required: false
+  footer_icon:
+    description: 'Fotter Icon Url'
+    required: false
+  image:
+    description: 'Image Url'
+    required: false
+  thumbnail:
+    description: 'Thumbnail Url'
+    required: false
+  author:
+    description: 'Name of author'
+    required: false
+  author_url:
+    description: 'Url of author'
+    required: false
+  author_icon:
+    description: 'Icon url of Author'
+    required: false
 
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'src/index.js'
