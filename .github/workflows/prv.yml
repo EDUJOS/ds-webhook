@@ -22,4 +22,4 @@ jobs:
               with:
                 webhook_url: https://discord.com/api/webhooks/1088959925553733703/ejVTaca1911utsx0ItAoUXsNrU0j2XiZ7MEICGrpBv6BXFSDgUZYg-aXEb9xKP7o7eX_
                 title: Some Title
-                description: Some Description
+                description: Chupalo est es una prueba
