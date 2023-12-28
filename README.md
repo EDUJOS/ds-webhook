@@ -7,8 +7,8 @@ Estoy creando un GitHub Action porque ninguno me funciona así que ¿Por qué ca
   uses: EDUJOS/ds-webhook@v1.0.0
   with:
     webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-    username: Username of the webhook
-    content: Hola hijos de la gtan puta ||@everyone||
+    title: Some Title
+    description: Some Description
 ```
 
 Let's Fucking go bitch!
