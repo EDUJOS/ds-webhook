@@ -7,28 +7,28 @@ inputs:
   webhook_url:
     description: 'Discord Webhook Url'
     required: true
-  content:
-    description: 'Message content'
-    required: false
-  username:
-    description: 'Username of the webhook'
-    required: false
-  avatar:
-    description: 'Avatar of the webhook[type: Url]'
-    required: false
+  # content:
+  #   description: 'Message content'
+  #   required: false
+  # username:
+  #   description: 'Username of the webhook'
+  #   required: false
+  # avatar:
+  #   description: 'Avatar of the webhook[type: Url]'
+  #   required: false
   # Embed Fields
   title:
     description: 'Title of embed'
-    required: false
+    required: true
   description:
     description: 'Description of embed'
-    required: false
+    required: true
   url:
     description: 'Url of embed'
     required: false
-  timestamp:
-    description: 'Timestamp of embed content'
-    required: false
+  # timestamp:
+  #   description: 'Timestamp of embed content'
+  #   required: false
   color:
     description: 'Color code of the embed'
     required: false
