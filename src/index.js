@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import github from '@actions/github'
-import { sendDiscordNotify } from './src/utils/dswebhook'
+import { sendDiscordNotify } from './utils/dswebhook'
 
 async function main () {
   const webhookUrl = core.getInput('webhook_url')
