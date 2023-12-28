@@ -1,6 +1,6 @@
 {
   "name": "ds-webhook",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "Send Discord webhooks via GitHub Actions",
   "main": "src/index.js",
   "type": "commonjs",
