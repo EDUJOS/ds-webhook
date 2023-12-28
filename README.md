@@ -11,5 +11,8 @@ Estoy creando un GitHub Action porque ninguno me funciona así que ¿Por qué ca
     description: Some Description
 ```
 
+> [!IMPORTANT]
+> Recuerda que los parámetros `webhook_url, title, description` son requeridos
+
 Let's Fucking go bitch!
 > Developed with love by Ed <3
