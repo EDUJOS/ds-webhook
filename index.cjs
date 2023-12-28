@@ -1,6 +1,6 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
-const { sendDiscordNotify } = require('./src/utils/dswebhook.cjs')
+const sendDiscordNotify = require('./src/utils/dswebhook.cjs')
 
 async function main () {
   const webhookUrl = core.getInput('webhook_url')

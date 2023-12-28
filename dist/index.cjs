@@ -95689,7 +95689,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(33050)
 const github = __nccwpck_require__(51681)
-const { sendDiscordNotify } = __nccwpck_require__(5438)
+const sendDiscordNotify = __nccwpck_require__(5438)
 
 async function main () {
   const webhookUrl = core.getInput('webhook_url')
