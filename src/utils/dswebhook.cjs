@@ -22,7 +22,7 @@ async function sendDiscordNotify (
     let newDescription = ''
     description.length > 4000
       ? newDescription = `${description.substring(0, 4000)}...`
-      : core.warning('¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos omitido el envío de tu webhook')
+      : core.warning(`¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos omitido el envío de tu webhook\n${description.length}`)
 
     const embedToSend = new EmbedBuilder()
       .setTitle(title)
