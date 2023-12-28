@@ -1,7 +1,7 @@
-import { EmbedBuilder, WebhookClient } from 'discord.js'
-import core from '@actions/core'
+const { EmbedBuilder, WebhookClient } = require('discord.js')
+const core = require('@actions/core')
 
-export async function sendDiscordNotify (
+async function sendDiscordNotify (
   webhookUrl,
   author,
   authorUrl = 'https://github.com/ERR-Z3R0',
@@ -50,3 +50,5 @@ export async function sendDiscordNotify (
     core.ExitCode(0)
   }
 }
+
+module.exports = sendDiscordNotify

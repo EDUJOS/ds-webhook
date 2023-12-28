@@ -1,6 +1,6 @@
-import * as core from '@actions/core'
-import github from '@actions/github'
-import { sendDiscordNotify } from './utils/dswebhook'
+const core = require('@actions/core')
+const github = require('@actions/github')
+const { sendDiscordNotify } = require('./utils/dswebhook')
 
 async function main () {
   const webhookUrl = core.getInput('webhook_url')
