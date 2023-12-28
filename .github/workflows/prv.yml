@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Discord Notify Webhook
-              uses: EDUJOS/ds-webhook@v1.0.9
+              uses: EDUJOS/ds-webhook@v1.0.10
               with:
                 webhook_url: https://discord.com/api/webhooks/1088959925553733703/ejVTaca1911utsx0ItAoUXsNrU0j2XiZ7MEICGrpBv6BXFSDgUZYg-aXEb9xKP7o7eX_
                 title: Some Title
