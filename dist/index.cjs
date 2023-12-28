@@ -1,4 +1,3 @@
-import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -90553,7 +90552,7 @@ module.exports = webpackEmptyContext;
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("assert");
+module.exports = require("assert");
 
 /***/ }),
 
@@ -90585,7 +90584,7 @@ module.exports = require("console");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("crypto");
+module.exports = require("crypto");
 
 /***/ }),
 
@@ -90601,7 +90600,7 @@ module.exports = require("diagnostics_channel");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("events");
+module.exports = require("events");
 
 /***/ }),
 
@@ -90609,7 +90608,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("events");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
+module.exports = require("fs");
 
 /***/ }),
 
@@ -90617,7 +90616,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("http");
+module.exports = require("http");
 
 /***/ }),
 
@@ -90633,7 +90632,7 @@ module.exports = require("http2");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("https");
+module.exports = require("https");
 
 /***/ }),
 
@@ -90641,7 +90640,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("https");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("net");
+module.exports = require("net");
 
 /***/ }),
 
@@ -90745,7 +90744,7 @@ module.exports = require("node:worker_threads");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
+module.exports = require("os");
 
 /***/ }),
 
@@ -90753,7 +90752,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("path");
+module.exports = require("path");
 
 /***/ }),
 
@@ -90777,7 +90776,7 @@ module.exports = require("process");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("punycode");
+module.exports = require("punycode");
 
 /***/ }),
 
@@ -90793,7 +90792,7 @@ module.exports = require("querystring");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("stream");
+module.exports = require("stream");
 
 /***/ }),
 
@@ -90833,7 +90832,7 @@ module.exports = require("timers/promises");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("tls");
+module.exports = require("tls");
 
 /***/ }),
 
@@ -90841,7 +90840,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("tls");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("url");
+module.exports = require("url");
 
 /***/ }),
 
@@ -90849,7 +90848,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("url");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
+module.exports = require("util");
 
 /***/ }),
 
@@ -90873,7 +90872,7 @@ module.exports = require("worker_threads");
 /***/ ((module) => {
 
 "use strict";
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("zlib");
+module.exports = require("zlib");
 
 /***/ }),
 
@@ -92492,67 +92491,6 @@ function parseParams (str) {
 }
 
 module.exports = parseParams
-
-
-/***/ }),
-
-/***/ 93195:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-const { EmbedBuilder, WebhookClient } = __nccwpck_require__(54750)
-const core = __nccwpck_require__(33050)
-
-async function sendDiscordNotify (
-  webhookUrl,
-  author,
-  authorUrl = 'https://github.com/ERR-Z3R0',
-  authorIcon = 'https://avatars.githubusercontent.com/u/126917905?s=400&u=201c605c76afbdcf6e81d2cd8258d7a1cf42c2da&v=4',
-  title,
-  description,
-  url,
-  color = '#fff',
-  footer,
-  footerIcon = 'https://avatars.githubusercontent.com/u/126917905?s=400&u=201c605c76afbdcf6e81d2cd8258d7a1cf42c2da&v=4',
-  image,
-  thumbnail
-) {
-  if (!webhookUrl | !title | !description) {
-    core.warning('Recuerdda proporcionar los parámetros requeridos, si no sabes cuales son visita https://github.com/edujos/ds-webhook/#discord-webhook-github-action')
-    core.ExitCode(1)
-  } else {
-    let newDescription = ''
-    description.length > 4000
-      ? newDescription = `${description.substring(0, 4000)}...`
-      : core.warning('¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos omitido el envío de tu webhook')
-
-    const embedToSend = new EmbedBuilder()
-      .setTitle(title)
-      .setDescription(newDescription)
-      .setColor(color)
-      .setTimestamp()
-
-    if (author) embedToSend.setAuthor({ name: author, iconURL: authorIcon, url: authorUrl })
-    if (url) embedToSend.setURL(url)
-    if (color !== '#fff') embedToSend.setColor(color)
-    if (thumbnail) embedToSend.setThumbnail(thumbnail)
-    if (image) embedToSend.setImage(image)
-    if (footer) embedToSend.setFooter({ text: footer, iconURL: footerIcon })
-
-    try {
-      const webhookClient = new WebhookClient({ url: webhookUrl })
-
-      webhookClient.send({
-        embeds: [embedToSend]
-      })
-    } catch (e) {
-      core.error(`Ups! Ha ocurrido un error inesperado:\nError: ${e.message}`)
-      core.ExitCode(1)
-    }
-    core.ExitCode(0)
-  }
-}
-
-module.exports = sendDiscordNotify
 
 
 /***/ }),
@@ -95573,6 +95511,67 @@ __name(handleMaybeAsync, "handleMaybeAsync");
 
 /***/ }),
 
+/***/ 5438:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const { EmbedBuilder, WebhookClient } = __nccwpck_require__(54750)
+const core = __nccwpck_require__(33050)
+
+async function sendDiscordNotify (
+  webhookUrl,
+  author,
+  authorUrl = 'https://github.com/ERR-Z3R0',
+  authorIcon = 'https://avatars.githubusercontent.com/u/126917905?s=400&u=201c605c76afbdcf6e81d2cd8258d7a1cf42c2da&v=4',
+  title,
+  description,
+  url,
+  color = '#fff',
+  footer,
+  footerIcon = 'https://avatars.githubusercontent.com/u/126917905?s=400&u=201c605c76afbdcf6e81d2cd8258d7a1cf42c2da&v=4',
+  image,
+  thumbnail
+) {
+  if (!webhookUrl | !title | !description) {
+    core.warning('Recuerdda proporcionar los parámetros requeridos, si no sabes cuales son visita https://github.com/edujos/ds-webhook/#discord-webhook-github-action')
+    core.ExitCode(1)
+  } else {
+    let newDescription = ''
+    description.length > 4000
+      ? newDescription = `${description.substring(0, 4000)}...`
+      : core.warning('¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos omitido el envío de tu webhook')
+
+    const embedToSend = new EmbedBuilder()
+      .setTitle(title)
+      .setDescription(newDescription)
+      .setColor(color)
+      .setTimestamp()
+
+    if (author) embedToSend.setAuthor({ name: author, iconURL: authorIcon, url: authorUrl })
+    if (url) embedToSend.setURL(url)
+    if (color !== '#fff') embedToSend.setColor(color)
+    if (thumbnail) embedToSend.setThumbnail(thumbnail)
+    if (image) embedToSend.setImage(image)
+    if (footer) embedToSend.setFooter({ text: footer, iconURL: footerIcon })
+
+    try {
+      const webhookClient = new WebhookClient({ url: webhookUrl })
+
+      webhookClient.send({
+        embeds: [embedToSend]
+      })
+    } catch (e) {
+      core.error(`Ups! Ha ocurrido un error inesperado:\nError: ${e.message}`)
+      core.ExitCode(1)
+    }
+    core.ExitCode(0)
+  }
+}
+
+module.exports = sendDiscordNotify
+
+
+/***/ }),
+
 /***/ 68673:
 /***/ ((module) => {
 
@@ -95690,7 +95689,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(33050)
 const github = __nccwpck_require__(51681)
-const { sendDiscordNotify } = __nccwpck_require__(93195)
+const { sendDiscordNotify } = __nccwpck_require__(5438)
 
 async function main () {
   const webhookUrl = core.getInput('webhook_url')
