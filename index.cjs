@@ -90,7 +90,9 @@ async function sendDiscordNotify (
               url: thumbnail | null
             }
           }
-        ]
+        ],
+        attachments: [],
+        flags: 4100
       }
       try {
         await fetch(`${webhookUrl}?wait=true`, {
@@ -102,7 +104,6 @@ async function sendDiscordNotify (
         })
           .then((res) => {
             if (!res.ok) {
-              core.ExitCode(1)
               throw new Error('Error HTTP: ' + res.status + res)
             }
 
