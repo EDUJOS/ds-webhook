@@ -95693,23 +95693,21 @@ async function sendDiscordNotify (
       newDescription = `${description.substring(0, sizeDescription)}...`
       core.warning(`¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos recortado la descripción de \n${sizeDescription} a ${newDescription.length}`)
     } else {
-      core.info('estoy pasando por aquí[NO se ha enviado el embed]')
-      const embedToSend = new EmbedBuilder()
-        .setTitle(title)
-        .setDescription(newDescription)
-        .setColor(color)
-        .setTimestamp()
-
-      core.info(`estoy pasando por aquí[Antes de las condicionales]\n${author}, ${url}, ${color}, ${thumbnail}, ${image}, ${footer}\n[Embed]: ${embedToSend}`)
-      if (author) embedToSend.setAuthor({ name: author, iconURL: authorIcon, url: authorUrl })
-      if (url) embedToSend.setURL(url)
-      if (color !== '#fff') embedToSend.setColor(color)
-      if (thumbnail) embedToSend.setThumbnail(thumbnail)
-      if (image) embedToSend.setImage(image)
-      if (footer) embedToSend.setFooter({ text: footer, iconURL: footerIcon })
-      core.info('estoy pasando por aquí[Antes de entrar al try]')
       try {
-        core.info('estoy pasando por aquí[Estoy en el try]')
+        core.info(`estoy pasando por aquí[NO se ha enviado el embed]\n${author}, ${url}, ${color}, ${thumbnail}, ${image}, ${footer}`)
+        const embedToSend = new EmbedBuilder()
+          .setTitle(title)
+          .setDescription(newDescription)
+          .setColor(color)
+          .setTimestamp()
+
+        core.info(`Estoy pasando por aquí[Antes de las condicionales]\n[Embed]: ${embedToSend}`)
+        if (author) embedToSend.setAuthor({ name: author, iconURL: authorIcon, url: authorUrl })
+        if (url) embedToSend.setURL(url)
+        if (color !== '#fff') embedToSend.setColor(color)
+        if (thumbnail) embedToSend.setThumbnail(thumbnail)
+        if (image) embedToSend.setImage(image)
+        if (footer) embedToSend.setFooter({ text: footer, iconURL: footerIcon })
         const webhookClient = new WebhookClient({ url: webhookUrl })
 
         const data = webhookClient.send({
