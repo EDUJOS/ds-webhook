@@ -95685,7 +95685,7 @@ async function sendDiscordNotify (
   let newDescription = ''
   if (!webhookUrl | !title | !description) {
     core.warning('Recuerdda proporcionar los parámetros requeridos, si no sabes cuales son visita https://github.com/edujos/ds-webhook/#discord-webhook-github-action')
-    core.ExitCode(1)
+    // core.ExitCode(1)
   } else {
     const sizeDescription = description.length
 
@@ -95716,9 +95716,10 @@ async function sendDiscordNotify (
         core.info(data)
       } catch (e) {
         core.error(`Ups! Ha ocurrido un error inesperado:\nError: ${e.message}`)
-        core.ExitCode(1)
+        core.info(e)
+        // core.ExitCode(1)
       }
-      core.ExitCode(0)
+      // core.ExitCode(0)
     }
   }
 }

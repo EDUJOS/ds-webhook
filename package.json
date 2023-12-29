@@ -1,11 +1,12 @@
 {
   "name": "ds-webhook",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Send Discord webhooks via GitHub Actions",
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
     "build": "ncc build index.cjs --license licenses.txt",
+    "patch": "npm version patch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
