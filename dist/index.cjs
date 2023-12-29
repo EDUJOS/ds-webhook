@@ -95691,8 +95691,9 @@ async function sendDiscordNotify (
 
     if (sizeDescription > 4000) {
       newDescription = `${description.substring(0, sizeDescription)}...`
-      core.warning(`¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos recortado la descripción de \n${sizeDescription} a ${newDescription.length}`)
+      core.warnig(`¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos recortado la descripción de \n${sizeDescription} a ${newDescription.length}`)
     } else {
+      core.info('estoy pasando por aquí[NO se ha enviado el embed]')
       const embedToSend = new EmbedBuilder()
         .setTitle(title)
         .setDescription(newDescription)
@@ -95705,8 +95706,9 @@ async function sendDiscordNotify (
       if (thumbnail) embedToSend.setThumbnail(thumbnail)
       if (image) embedToSend.setImage(image)
       if (footer) embedToSend.setFooter({ text: footer, iconURL: footerIcon })
-
+      core.info('estoy pasando por aquí[Antes de entrar al try]')
       try {
+        core.info('estoy pasando por aquí[Estoy en el try]')
         const webhookClient = new WebhookClient({ url: webhookUrl })
 
         const data = webhookClient.send({
@@ -95715,6 +95717,7 @@ async function sendDiscordNotify (
         console.log(data)
         core.info(data)
       } catch (e) {
+        core.info('estoy pasando por aquí[Estoy en el catch]')
         core.error(`Ups! Ha ocurrido un error inesperado:\nError: ${e.message}`)
         core.info(e)
         // core.ExitCode(1)
