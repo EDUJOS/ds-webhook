@@ -95691,7 +95691,7 @@ async function sendDiscordNotify (
 
     if (sizeDescription > 4000) {
       newDescription = `${description.substring(0, sizeDescription)}...`
-      core.warnig(`¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos recortado la descripción de \n${sizeDescription} a ${newDescription.length}`)
+      core.warning(`¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos recortado la descripción de \n${sizeDescription} a ${newDescription.length}`)
     } else {
       core.info('estoy pasando por aquí[NO se ha enviado el embed]')
       const embedToSend = new EmbedBuilder()
@@ -95700,6 +95700,7 @@ async function sendDiscordNotify (
         .setColor(color)
         .setTimestamp()
 
+      core.info(`estoy pasando por aquí[Antes de las condicionales]\n${author}, ${url}, ${color}, ${thumbnail}, ${image}, ${footer}\n[Embed]: ${embedToSend}`)
       if (author) embedToSend.setAuthor({ name: author, iconURL: authorIcon, url: authorUrl })
       if (url) embedToSend.setURL(url)
       if (color !== '#fff') embedToSend.setColor(color)
