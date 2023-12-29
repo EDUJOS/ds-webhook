@@ -18,8 +18,9 @@ jobs:
             - name: Install dependencies
               run: npm install
             - name: Discord Notify Webhook
-              uses: EDUJOS/ds-webhook@v1.0.16
+              uses: EDUJOS/ds-webhook@v1.0.17
               with:
                 webhook_url: https://discord.com/api/webhooks/1088959925553733703/ejVTaca1911utsx0ItAoUXsNrU0j2XiZ7MEICGrpBv6BXFSDgUZYg-aXEb9xKP7o7eX_
                 title: Some Title
                 description: Espero que ésta vez funcione lptm
+                color: '#202020'
