@@ -1,4 +1,4 @@
-const { EmbedBuilder, WebhookClient } = require('discord.js')
+// const { EmbedBuilder, WebhookClient } = require('discord.js')
 const core = require('@actions/core')
 const github = require('@actions/github')
 
@@ -31,12 +31,12 @@ async function main () {
       image,
       thumbnail
     )
-
-    core.info('El webhook se ha enviado con éxito')
+    // eslint-disable-next-line no-unused-vars
     const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`)
+    // console.log(`The event payload: ${payload}`)
   } catch (error) {
     core.setFailed(error.message)
+    core.ExitCode(1)
   }
 }
 
@@ -65,28 +65,53 @@ async function sendDiscordNotify (
       newDescription = `${description.substring(0, sizeDescription)}...`
       core.warning(`¡Vaya parece que has excedido el límite de caracteres permitidos por discord!\nPor ello hemos recortado la descripción de \n${sizeDescription} a ${newDescription.length}`)
     } else {
+      const webhookBody = {
+        content: null,
+        embeds: [
+          {
+            title,
+            description: newDescription,
+            url: url | null,
+            color,
+            author: {
+              name: author | 'Discord Notify Webhook',
+              url: authorUrl,
+              icon_url: authorIcon
+            },
+            footer: {
+              text: footer,
+              icon_url: footerIcon
+            },
+            timestamp: Date.now().toLocaleString(),
+            image: {
+              url: image | null
+            },
+            thumbnail: {
+              url: thumbnail | null
+            }
+          }
+        ]
+      }
       try {
-        core.info(`estoy pasando por aquí[NO se ha enviado el embed]\n${author}, ${url}, ${color}, ${thumbnail}, ${image}, ${footer}`)
-        const embedToSend = new EmbedBuilder()
-          .setTitle(title)
-          .setDescription(newDescription)
-          .setColor(color)
-          .setTimestamp()
-
-        core.info(`Estoy pasando por aquí[Antes de las condicionales]\n[Embed]: ${embedToSend}`)
-        if (author) embedToSend.setAuthor({ name: author, iconURL: authorIcon, url: authorUrl })
-        if (url) embedToSend.setURL(url)
-        if (color !== '#fff') embedToSend.setColor(color)
-        if (thumbnail) embedToSend.setThumbnail(thumbnail)
-        if (image) embedToSend.setImage(image)
-        if (footer) embedToSend.setFooter({ text: footer, iconURL: footerIcon })
-        const webhookClient = new WebhookClient({ url: webhookUrl })
-
-        const data = webhookClient.send({
-          embeds: [embedToSend]
+        await fetch(`${webhookUrl}?wait=true`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(webhookBody)
         })
-        console.log(data)
-        core.info(data)
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error('Error HTTP: ' + res.status)
+            }
+
+            return res.json()
+          })
+          .then((data) => {
+            core.info('El webhook se ha enviado con éxito')
+            console.log(data)
+          })
+          .catch((error) => console.log(error))
       } catch (e) {
         core.info('estoy pasando por aquí[Estoy en el catch]')
         core.error(`Ups! Ha ocurrido un error inesperado:\nError: ${e.message}`)
