@@ -9893,7 +9893,8 @@ async function sendDiscordNotify (
         })
           .then((res) => {
             if (!res.ok) {
-              throw new Error('Error HTTP: ' + res.status)
+              core.ExitCode(1)
+              throw new Error('Error HTTP: ' + res.status + res)
             }
 
             return res.json()
